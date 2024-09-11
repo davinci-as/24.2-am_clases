@@ -2,16 +2,13 @@ package ar.edu.davinci.a242_clase_03;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class NextActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        //Intent intent = new Intent(this, NextActivity.class);
-        //startActivity(intent);
+        setContentView(R.layout.activity_next);
     }
 }
