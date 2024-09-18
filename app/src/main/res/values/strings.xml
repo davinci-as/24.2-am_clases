@@ -2,4 +2,5 @@
     <string name="app_name">24.2-clase_03</string>
     <string name="main_message">Hello World!</string>
     <string name="button_text">Probar botón</string>
+    <string name="next_text">No se recibió datos</string>
 </resources>
