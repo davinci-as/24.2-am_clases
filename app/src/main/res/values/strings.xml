@@ -3,4 +3,5 @@
     <string name="main_message">Hello World!</string>
     <string name="button_text">Probar botón</string>
     <string name="next_text">No se recibió datos</string>
+    <string name="new_text">Texto pasado como extra</string>
 </resources>
