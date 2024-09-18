@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View view) {
         Intent intent = new Intent(this, NextActivity.class);
+        intent.putExtra("newText", getString(R.string.new_text));
         startActivity(intent);
     }
 }
