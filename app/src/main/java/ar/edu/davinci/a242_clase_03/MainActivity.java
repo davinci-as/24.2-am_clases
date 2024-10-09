@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     public void download() {
         ImageView imageView = findViewById(R.id.imageView);
         ImageDownloader downloader = new ImageDownloader(imageView);
+        downloader.execute(getString(R.string.panda_image));
     }
 
     @Override
