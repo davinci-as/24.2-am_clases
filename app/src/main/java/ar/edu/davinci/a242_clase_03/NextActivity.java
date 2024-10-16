@@ -4,9 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
-import java.util.logging.Logger;
+import java.io.IOException;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class NextActivity extends AppCompatActivity {
 
@@ -19,6 +24,7 @@ public class NextActivity extends AppCompatActivity {
         TextView secondText = findViewById(R.id.secondText);
 
         if(intent.hasExtra("newText")) {
+            new GetRicks().execute("https://rickandmortyapi.com/api/character");
             String newText = intent.getStringExtra("newText");
             secondText.setText(newText);
         } else {
