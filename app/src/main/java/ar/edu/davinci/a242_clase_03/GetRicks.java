@@ -3,6 +3,10 @@ package ar.edu.davinci.a242_clase_03;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import okhttp3.OkHttpClient;
@@ -32,6 +36,19 @@ public class GetRicks extends AsyncTask<String, Integer, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        Log.i("api request", s);
+        try {
+            JSONObject jsonObject = new JSONObject(s);
+            JSONObject info = jsonObject.getJSONObject("info");
+            Integer count = info.getInt("count");
+            Log.i("api request", String.valueOf(count));
+
+            JSONArray results = jsonObject.getJSONArray("results");
+            Integer length = results.length();
+            Log.i("api request", String.valueOf(length));
+
+
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
