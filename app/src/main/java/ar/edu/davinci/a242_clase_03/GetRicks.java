@@ -2,6 +2,7 @@ package ar.edu.davinci.a242_clase_03;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,6 +15,13 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class GetRicks extends AsyncTask<String, Integer, String> {
+
+
+    private final TextView textField;
+
+    GetRicks(TextView secondText) {
+        this.textField = secondText;
+    }
     OkHttpClient client = new OkHttpClient();
 
     String run(String url) throws IOException {
@@ -44,7 +52,14 @@ public class GetRicks extends AsyncTask<String, Integer, String> {
 
             JSONArray results = jsonObject.getJSONArray("results");
             Integer length = results.length();
-            Log.i("api request", String.valueOf(length));
+            JSONObject alienRick = results.getJSONObject(2);
+            String alienRickName = alienRick.getString("name");
+            String alienRickSpecie = alienRick.getString("species");
+
+            String textString = String.format("%s (%s)", alienRickName, alienRickSpecie);
+            Log.i("api request", String.valueOf(textString));
+
+            this.textField.setText(textString);
 
 
         } catch (JSONException e) {

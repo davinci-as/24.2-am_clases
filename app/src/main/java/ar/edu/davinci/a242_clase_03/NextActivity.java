@@ -24,9 +24,9 @@ public class NextActivity extends AppCompatActivity {
         TextView secondText = findViewById(R.id.secondText);
 
         if(intent.hasExtra("newText")) {
-            new GetRicks().execute("https://rickandmortyapi.com/api/character");
+            new GetRicks(secondText).execute("https://3146d3e3-7d19-4be9-8603-20a41be9f8be-00-1mzroolo06fe5.janeway.repl.co/randomCharacters");
             String newText = intent.getStringExtra("newText");
-            secondText.setText(newText);
+            //secondText.setText(newText);
         } else {
             secondText.setText(getText(R.string.next_text));
         }
