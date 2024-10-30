@@ -5,4 +5,7 @@
     <string name="next_text">No se recibió datos</string>
     <string name="new_text">Texto pasado como extra</string>
     <string name="panda_image">https://wwflac.awsassets.panda.org/img/original/young_panda__brad_josephs.jpg</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="login_btn_text">Iniciar Sesión</string>
 </resources>
