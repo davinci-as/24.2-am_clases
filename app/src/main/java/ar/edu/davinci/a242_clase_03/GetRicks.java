@@ -45,18 +45,16 @@ public class GetRicks extends AsyncTask<String, Integer, String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         try {
-            JSONObject jsonObject = new JSONObject(s);
-            JSONObject info = jsonObject.getJSONObject("info");
-            Integer count = info.getInt("count");
+            RickAPI data = new RickAPI(s);
+            Integer count = data.getInfo().getCount();
             Log.i("api request", String.valueOf(count));
 
-            JSONArray results = jsonObject.getJSONArray("results");
-            Integer length = results.length();
-            JSONObject alienRick = results.getJSONObject(2);
-            String alienRickName = alienRick.getString("name");
-            String alienRickSpecie = alienRick.getString("species");
+            Character secondCharacter = data.getResults().get(1);
 
-            String textString = String.format("%s (%s)", alienRickName, alienRickSpecie);
+            String textString = String.format("%s (%s)",
+                secondCharacter.getName(),
+                secondCharacter.getSpecies()
+            );
             Log.i("api request", String.valueOf(textString));
 
             this.textField.setText(textString);
